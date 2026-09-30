@@ -1,718 +1,453 @@
-::: {align="center"}
-[![Typing
-SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=32&pause=1200&color=0E5C56&center=true&vCenter=true&width=680&lines=Olist+Business+Discovery+%F0%9F%93%A6;Delivery+Delay+%E2%86%92+Review+Score;pandas+%C2%B7+Data+%26+AI+Solutions)](https://git.io/typing-svg)
+<div align="center">
+
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=30&pause=1200&color=2DD4BF&center=true&vCenter=true&width=700&lines=Olist+Business+Discovery+%F0%9F%93%A6;Delivery+Delay+%E2%86%92+Review+Score;pandas+%C2%B7+Data+%26+AI+Solutions" alt="Typing SVG" />
+</a>
+
+<br/>
 
 [![Python](https://img.shields.io/badge/Python-3.10+-0E5C56?style=for-the-badge&logo=python&logoColor=white&labelColor=16262A)](https://python.org)
 [![pandas](https://img.shields.io/badge/pandas-Analysis-0E5C56?style=for-the-badge&logo=pandas&logoColor=white&labelColor=16262A)](https://pandas.pydata.org)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-0E5C56?style=for-the-badge&logo=jupyter&logoColor=white&labelColor=16262A)](https://jupyter.org)
 [![Kaggle](https://img.shields.io/badge/Kaggle-Dataset-E2623D?style=for-the-badge&logo=kaggle&logoColor=white&labelColor=16262A)](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 
-> **99,441 orders. 8 source tables. One pattern connecting delivery
-> problems to 43.7% of all 1--2 star reviews.**
->
-> **HVIA Data & AI Solutions --- Business Discovery Task 01**
+<br/>
 
-  ------------------------------------------------------------------------------
-    🌎 Market      📦 Orders      🧩 Source     ⏱️ Data period      📄 Main
-                                    tables                        deliverable
-  -------------- -------------- -------------- ---------------- ----------------
-    **Brazil**     **99,441**       **8**       **2016--2018**      **Story
-                                                                 presentation +
-                                                                   notebook**
+### 99,441 orders · 8 source tables · one pattern connecting delivery problems to **43.7%** of all 1–2 star reviews
 
-  ------------------------------------------------------------------------------
+**HVIA Data & AI Solutions — Business Discovery Task 01**
 
-**[📓 Open the notebook →](notebook/Olist_Analysis.ipynb)**
-:::
+<br/>
 
-------------------------------------------------------------------------
+<table>
+  <tr>
+    <th>🌎 Market</th>
+    <th>📦 Orders</th>
+    <th>🧩 Source tables</th>
+    <th>⏱️ Data period</th>
+    <th>📄 Deliverables</th>
+  </tr>
+  <tr align="center">
+    <td><b>Brazil</b></td>
+    <td><b>99,441</b></td>
+    <td><b>8</b></td>
+    <td><b>2016–2018</b></td>
+    <td><b>Story deck + notebook</b></td>
+  </tr>
+</table>
+
+<br/>
+
+**[📓 Open the notebook](Olist_Analysis.ipynb)** &nbsp;·&nbsp; **[📊 View the story deck](Olist_Story_Report.pptx)** &nbsp;·&nbsp; **[🧾 results.json](results.json)**
+
+</div>
+
+---
+
+## 📑 Contents
+
+- [What is this?](#-what-is-this)
+- [Project structure](#-project-structure)
+- [Meet Olist](#-meet-olist)
+- [The dataset](#-the-dataset)
+- [How the analysis works](#-how-the-analysis-works)
+- [Data quality & join safety](#-data-quality--join-safety)
+- [Key findings](#-key-findings)
+- [Business interpretation](#-business-interpretation)
+- [Proposed solution](#-proposed-solution--delivery-intelligence--seller-health)
+- [Pilot & roadmap](#-pilot--success-measurement)
+- [Outreach](#-outreach)
+- [Quick start](#-quick-start)
+- [Tech stack](#-tech-stack)
+- [Limitations](#-limitations)
+
+---
 
 ## ✦ What is this?
 
-A **data-first business discovery analysis of Olist**, prepared for the
-**HVIA Data & AI Solutions Business Discovery internship task**.
+A **data-first business discovery analysis of Olist**, prepared for the **HVIA Data & AI Solutions Business Discovery internship task**.
 
-The objective was not to produce charts for their own sake. The work
-follows the task from:
+The goal was not to produce charts for their own sake. The work follows the task end to end:
 
-**business understanding → data inspection → cleaning → analysis →
-business findings → solution proposal → outreach**
+> **business understanding → data inspection → cleaning → analysis → business findings → solution proposal → outreach**
 
-The central finding from the current data is:
+### The headline finding
 
-> **Late orders and orders that never arrive represent about 10.8% of
-> orders, but account for 43.7% of all 1--2 star reviews.**
+> **Late orders and orders that never arrive are about 10.8% of orders, but account for 43.7% of all 1–2 star reviews.**
 
-This is treated as an **association, not proof of causation**.
+This is an **association, not proof of causation.**
 
-------------------------------------------------------------------------
+---
 
-## ✦ Project Structure
+## ✦ Project structure
 
-``` text
-olist-business-discovery/
-│
-├── 📓 notebook/
-│   └── Olist_Analysis.ipynb
-│
-├── 📊 charts/
-│   └── generated analysis charts
-│
-├── 🧾 results.json
-│   └── key results generated by the notebook
-│
-├── 📊 Olist_Story_Report.pptx
-│   └── business story, findings, solution and next steps
-│
-├── 📋 requirements.txt
-│
+```text
+HVIA_Task1_Olist/
+├── 📓 Olist_Analysis.ipynb      # analytical source of truth
+├── 📊 Olist_Story_Report.pptx   # business story, findings, solution, next steps
+├── 🧾 results.json              # key metrics generated by the notebook
+├── 📈 charts/                   # generated analysis charts
+├── 🗃️ data/                     # source CSV files
 └── 📖 README.md
 ```
 
-> The notebook is the analytical source of truth. `results.json` stores
-> the key metrics used by the presentation.
+> The notebook is the source of truth. `results.json` stores the key metrics used in the presentation.
 
-------------------------------------------------------------------------
+---
 
 ## ✦ Meet Olist
 
-Olist is a Brazilian e-commerce technology company that connects sellers
-with the online commerce ecosystem.
+Olist is a Brazilian e-commerce technology company that connects sellers with the online commerce ecosystem.
 
-For this analysis, an important distinction is made:
+An important distinction is made throughout this analysis:
 
--   **Sellers** are the businesses using Olist's platform.
--   The people represented in the order/review data are **end
-    shoppers**.
--   The current project data does **not** contain the separate customer
-    table needed for reliable repeat-buyer or customer-location
-    analysis.
+- **Sellers** are the businesses using Olist's platform.
+- The people in the order and review data are **end shoppers**.
+- The project data does **not** include the customer table needed for reliable repeat-buyer or customer-location analysis.
 
-The analysis therefore focuses on what the supplied data can actually
-support: orders, sellers, products, payments, reviews, delivery timing
-and seller geography.
+The analysis therefore sticks to what the data supports: orders, sellers, products, payments, reviews, delivery timing and seller geography.
 
-------------------------------------------------------------------------
+---
 
-## ✦ The Actual Dataset
+## ✦ The dataset
 
-The current project contains **8 CSV files**:
+The project contains **8 CSV files**:
 
-  -------------------------------------------------------------------------------------------------
-  Table                                               Rows Grain            Used for
-  ----------------------------------------- -------------- ---------------- -----------------------
-  `olist_orders_dataset.csv`                        99,441 1 order          Order status and
-                                                                            delivery timestamps
+| Table | Rows | Grain | Used for |
+|---|---:|---|---|
+| `olist_orders_dataset.csv` | 99,441 | 1 order | Order status and delivery timestamps |
+| `olist_order_items_dataset.csv` | 112,650 | 1 order item | Items, sellers, price and freight |
+| `olist_order_payments_dataset.csv` | 103,886 | 1 payment record | Payment analysis |
+| `olist_order_reviews_dataset.csv` | 100,000 | Review + order | Review scores and comments |
+| `olist_products_dataset.csv` | 32,951 | 1 product | Product / category analysis |
+| `olist_sellers_dataset.csv` | 3,095 | 1 seller | Seller analysis |
+| `olist_geolocation_dataset.csv` | 1,000,163 | ZIP-prefix record | Geographic reference |
+| `product_category_name_translation.csv` | 71 | 1 category | Category translation |
 
-  `olist_order_items_dataset.csv`                  112,650 1 order item     Items, sellers, price
-                                                                            and freight
+### What the data can and can't answer
 
-  `olist_order_payments_dataset.csv`               103,886 1 payment record Payment analysis
+| Question | Answerable? |
+|---|:---:|
+| Review score | ✅ |
+| Delivery timestamps | ✅ |
+| Late-delivery rate | ✅ |
+| Never-arrived orders | ✅ |
+| Seller performance | ✅ |
+| Seller location | ✅ |
+| Product / category performance | ✅ |
+| Payment behavior | ✅ |
+| Customer location | ❌ |
+| Repeat buyers | ❌ |
+| Seller shipping-deadline compliance | ❌ |
+| Costs / margins | ❌ |
 
-  `olist_order_reviews_dataset.csv`                100,000 Review + order   Review scores and
-                                                                            comments
+The folder does **not** contain a `customers` table, `customer_unique_id`, `shipping_limit_date`, or any cost / margin data. So this version does **not** claim repeat-buyer or retention results, customer location or distance, official shipping-deadline compliance, or profit / margin impact. The notebook checks the available schema before making any claim.
 
-  `olist_products_dataset.csv`                      32,951 1 product        Product/category
-                                                                            analysis
+---
 
-  `olist_sellers_dataset.csv`                        3,095 1 seller         Seller analysis
+## ✦ How the analysis works
 
-  `olist_geolocation_dataset.csv`                1,000,163 ZIP-prefix       Geographic reference
-                                                           record           
+| Step | What happens |
+|---|---|
+| **1. Business research** | Understand Olist, its marketplace model and business context |
+| **2. File inspection** | Discover the actual files, rows, columns, missing values and grain |
+| **3. Data validation** | Check keys, timestamps, duplicate relationships and join safety |
+| **4. Cleaning** | Handle inconsistent records without silently hiding data-quality problems |
+| **5. KPI analysis** | Orders, sales value, delivery performance and review score |
+| **6. Business findings** | Growth, delivery, reviews, sellers, multi-seller orders, complaints, freight |
+| **7. Interpretation** | Connect the findings into one business story |
+| **8. Solution** | Propose *Delivery Intelligence & Seller Health* |
+| **9. Pitch** | Turn the analysis into a practical outreach proposal |
 
-  `product_category_name_translation.csv`               71 1 category       Category translation
-  -------------------------------------------------------------------------------------------------
+---
 
-### Important data boundaries
+## ✦ Data quality & join safety
 
-The current folder **does not contain**:
+### Data-quality checks
 
--   a `customers` table
--   `customer_unique_id`
--   `shipping_limit_date`
--   financial cost / margin data
+Issues found in the current files are documented, not hidden:
 
-Therefore, this version does **not** claim:
+| Issue | Count |
+|---|---:|
+| Carrier pickup before purchase | **166** |
+| Carrier pickup before payment approval | **1,359** |
+| Delivery before carrier pickup | **23** |
+| Delivered orders without delivery date | **8** |
+| Delivery date present but status not delivered | **6** |
+| Reviews written before purchase | **75** |
+| Orders with 2+ review rows | **555** |
+| Review IDs associated with another order | **827** |
+| Products without English category translation | **13** |
 
--   repeat-buyer / customer-retention results
--   customer state or customer location
--   customer-to-seller distance
--   seller compliance with an official `shipping_limit_date`
--   profit, margin or cost impact
+### Join safety
 
-The analysis stays within the evidence available in the actual files.
+Several tables hold multiple rows per order:
 
-------------------------------------------------------------------------
-
-## ✦ What Can the Current Data Answer?
-
-  Question                               Current data
-  ------------------------------------- --------------
-  Review score                                ✅
-  Delivery timestamps                         ✅
-  Late-delivery rate                          ✅
-  Never-arrived orders                        ✅
-  Seller performance                          ✅
-  Seller location                             ✅
-  Product/category performance                ✅
-  Payment behavior                            ✅
-  Customer location                           ❌
-  Repeat buyers                               ❌
-  Seller shipping deadline compliance         ❌
-  Costs / margins                             ❌
-
-This is intentional: the notebook checks the available schema before
-making claims.
-
-------------------------------------------------------------------------
-
-## ✦ How the Analysis Works
-
-  -----------------------------------------------------------------------
-  Step                  What happens
-  --------------------- -------------------------------------------------
-  **1. Business         Understand Olist, its marketplace model and the
-  research**            business context
-
-  **2. File             Discover the actual files, rows, columns, missing
-  inspection**          values and grain
-
-  **3. Data             Check keys, timestamps, duplicate relationships
-  validation**          and join safety
-
-  **4. Cleaning**       Handle inconsistent records without silently
-                        hiding data-quality problems
-
-  **5. KPI analysis**   Orders, sales value, delivery performance and
-                        review score
-
-  **6. Business         Growth, delivery, reviews, sellers, multi-seller
-  findings**            orders, complaints and freight
-
-  **7. Interpretation** Connect the findings into a business story
-
-  **8. Solution**       Propose Delivery Intelligence & Seller Health
-
-  **9. Pitch**          Turn the analysis into a practical outreach
-                        proposal
-  -----------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-## ✦ Data Quality Checks
-
-Before drawing business conclusions, the notebook checks the source
-data.
-
-Examples found in the current files:
-
-  Issue                                                  Count
-  ------------------------------------------------ -----------
-  Carrier pickup before purchase                       **166**
-  Carrier pickup before payment approval             **1,359**
-  Delivery before carrier pickup                        **23**
-  Delivered orders without delivery date                 **8**
-  Delivery date present but status not delivered         **6**
-  Reviews written before purchase                       **75**
-  Orders with 2+ review rows                           **555**
-  Review IDs associated with another order             **827**
-  Products without English category translation         **13**
-
-These checks are part of the analysis rather than being hidden.
-
-------------------------------------------------------------------------
-
-## ✦ Join Safety
-
-Several tables contain multiple rows for the same order.
-
-For example:
-
-``` text
-order_items
-     ×
-payments
-     ×
-reviews
+```text
+order_items  ×  payments  ×  reviews
 ```
 
-A direct join on `order_id` can multiply rows and inflate:
+A direct join on `order_id` multiplies rows and inflates order counts, sales, averages, review metrics and delivery statistics. The notebook **aggregates to order level before combining tables**, preserving the correct analytical grain instead of producing inflated many-to-many results.
 
--   order counts
--   sales
--   averages
--   review metrics
--   delivery statistics
+---
 
-The notebook therefore aggregates order-level information before
-combining it with other tables where necessary.
+## ✦ Key findings
 
-**The goal is to preserve the correct analytical grain instead of
-producing inflated numbers from many-to-many joins.**
+### 1. Order growth
 
-------------------------------------------------------------------------
+- Orders grew about **+135%** comparing Jan–Aug 2018 with Jan–Aug 2017.
+- Peak month: **November 2017 — 7,544 orders**.
+- Average monthly volume in 2018: about **6,749 orders**.
 
-# ✦ Key Findings
+The story isn't "orders keep accelerating": the data shows strong growth followed by a flatter period.
 
-## 1. Order Growth
+### 2. Delivery performance
 
-Orders increased by approximately:
+- **7,827** late orders (**8.1%** late rate)
+- **2,965** orders that never arrived
+- **21.4%** late rate in **March 2018**, the worst month
 
-**+135%**
+| Metric | Days |
+|---|---:|
+| Promised delivery | **23.7** |
+| Actual delivery | **12.6** |
 
-when comparing January--August 2018 with January--August 2017.
+A large average buffer does not prevent serious delivery failures in specific periods.
 
-The peak month was:
+### 3. Delay → review score
 
-**November 2017 --- 7,544 orders**
+| Delivery timing | Avg. review score |
+|---|---:|
+| On time | **4.28** |
+| 1–3 days late | **3.75** |
+| 3–7 days late | **2.30** |
+| 7–14 days late | **1.74** |
+| 14+ days late | **1.70** |
 
-Average monthly order volume in 2018 was around:
+| Order group | Low-review rate (1–2 stars) |
+|---|---:|
+| On time | **9.5%** |
+| Late | **54.6%** |
+| Never arrived | **78.3%** |
 
-**6,749 orders**
+> ⚠️ These are observed associations. They do not establish that delivery delay alone caused the review score.
 
-The growth story is therefore not simply "orders keep accelerating"; the
-dataset shows strong growth followed by a flatter period.
+### 4. The main business finding
 
-------------------------------------------------------------------------
+| Group | Share of orders | Share of 1–2 star reviews |
+|---|---:|---:|
+| On time | **89.2%** | **56.3%** |
+| Late | **7.9%** | **28.6%** |
+| Never arrived | **2.9%** | **15.2%** |
 
-## 2. Delivery Performance
+**Late + Never arrived = 10.8% of orders → 43.7% of all 1–2 star reviews.**
 
-The current analysis finds:
+This concentration makes delivery reliability a measurable business problem worth investigating.
 
--   **7,827 late orders**
--   **8.1% late rate**
--   **2,965 orders that never arrived**
--   **21.4% late rate in March 2018**, the worst month in the monthly
-    analysis
+### 5. Orders that never arrived
 
-Average delivery timing:
+**2,965 orders**, with an average review score of **1.74**. Observed statuses:
 
-  Metric                    Days
-  ------------------- ----------
-  Promised delivery     **23.7**
-  Actual delivery       **12.6**
+| Status | Orders |
+|---|---:|
+| Shipped | **1,107** |
+| Canceled | **619** |
+| Unavailable | **609** |
+| Invoiced | **314** |
+| Processing | **301** |
+| Delivered | **8** |
+| Created | **5** |
+| Approved | **2** |
 
-The large average buffer does not prevent significant delivery failures
-during certain periods.
+### 6. Where delivery time goes
 
-------------------------------------------------------------------------
+| Stage | On-time orders | Late orders |
+|---|---:|---:|
+| Payment approval | 0.4 days | 0.5 days |
+| Seller handling | 2.6 days | 5.3 days |
+| Carrier transit | 7.9 days | 25.7 days |
 
-## 3. Delay → Review Score
+The biggest difference is **carrier transit**, but seller handling also grows on late orders:
 
-Average review score by delivery timing:
+| Seller handoff | Late rate |
+|---|---:|
+| Fast | **6.3%** |
+| Slow | **16.6%** |
 
-  Delivery timing     Average score
-  ----------------- ---------------
-  On time                  **4.28**
-  1--3 days late           **3.75**
-  3--7 days late           **2.30**
-  7--14 days late          **1.74**
-  14+ days late            **1.70**
+Because `shipping_limit_date` is not in the data, this is **not** a seller-deadline violation analysis.
 
-Low ratings also increase sharply:
+### 7. Seller concentration
 
-  Order group       Low-review rate
-  --------------- -----------------
-  On time                  **9.5%**
-  Late                    **54.6%**
-  Never arrived           **78.3%**
+Sellers are scored only above a minimum order-volume threshold.
 
-This is one of the clearest patterns in the dataset.
+| Metric | Value |
+|---|---:|
+| Sellers in source data | **3,095** |
+| Sellers scored | **634** |
+| Share of sales covered by scored sellers | **~77%** |
+| Sellers on the watch list | **101** |
+| Share of sales from watch-list sellers | **~8.2%** |
+| Share of sales from the top 10% of sellers | **~67%** |
+| Median seller order count | **6** |
 
-> **Important:** these are observed associations. They do not establish
-> that delivery delay alone caused the review score.
+A relatively small group of sellers represents a large share of marketplace value.
 
-------------------------------------------------------------------------
+### 8. Multi-seller orders
 
-## 4. The Main Business Finding
+Among the relevant on-time orders (**1,257 multi-seller orders** in the analyzed subset):
 
-The order population is approximately:
+| Order type | Avg. review score |
+|---|---:|
+| Single-seller | **≈ 4.30** |
+| Multi-seller | **≈ 2.86** |
 
-  Group             Share of orders   Share of 1--2 star reviews
-  --------------- ----------------- ----------------------------
-  On time                 **89.2%**                    **56.3%**
-  Late                     **7.9%**                    **28.6%**
-  Never arrived            **2.9%**                    **15.2%**
+Again an association, not proof that multi-seller fulfillment lowers ratings.
 
-Together:
+### 9. Review comment themes
 
-**Late + Never arrived = 10.8% of orders**
+The notebook reads **11,363 review comments** and applies simple keyword-based themes (a comment can match more than one):
 
-but:
+| Theme | Share |
+|---|---:|
+| Not received / late | **38.9%** |
+| Only part arrived | **14.4%** |
+| Defective / poor | **10.0%** |
+| Wrong product | **8.4%** |
 
-**43.7% of all 1--2 star reviews**
+These are directional keyword themes, not a production NLP classifier.
 
-This concentration makes delivery reliability a measurable business
-problem worth investigating.
+### 10. Freight pressure
 
-------------------------------------------------------------------------
+| Item price | Freight / item price |
+|---|---:|
+| < R$25 | **77%** |
+| R$25–50 | **39%** |
+| R$50–100 | **24%** |
+| R$100–200 | **16%** |
+| R$200+ | **8%** |
 
-## 5. Orders That Never Arrived
+Overall freight is about **16.6%** of item price. This is a supporting finding, not the main story.
 
-The analysis identifies **2,965 orders** that never arrived.
+---
 
-Their observed statuses include:
+## ✦ Business interpretation
 
-  Status             Orders
-  ------------- -----------
-  Shipped         **1,107**
-  Canceled          **619**
-  Unavailable       **609**
-  Invoiced          **314**
-  Processing        **301**
-  Delivered           **8**
-  Created             **5**
-  Approved            **2**
+| Story | Evidence |
+|---|---|
+| **Delivery reliability affects customer experience** | Late and never-arrived orders are ~10.8% of orders but 43.7% of 1–2 star reviews |
+| **The problem is uneven** | Monthly late rates vary sharply, reaching 21.4% in March 2018 |
+| **The delay has identifiable stages** | Late orders spend far longer in carrier transit and also have longer seller handling |
+| **Seller performance is concentrated** | The top 10% of sellers represent ~67% of sales |
+| **The problem is measurable** | Order, seller, delivery-stage and review data can be combined to monitor risk |
 
-The average review score associated with never-arrived orders is:
+The analysis does **not** claim delivery is the only reason for bad reviews. It identifies delivery reliability as the clearest measurable pattern in the supplied data.
 
-**1.74**
+---
 
-------------------------------------------------------------------------
+## ✦ Proposed solution — Delivery Intelligence & Seller Health
 
-## 6. Where Delivery Time Goes
+| Module | What it does |
+|---|---|
+| 🚨 **Early-Warning Score** | Estimates late-delivery risk per order from signals like seller history, product characteristics and seasonality |
+| 📋 **Seller Health Scorecard** | Tracks late rate, problematic orders, handling time and review trends per seller |
+| 🎯 **Promise Calibration** | Uses historical delivery behavior to set more realistic delivery windows by operational segment and season |
 
-The analysis decomposes the delivery journey.
-
-### On-time orders
-
-``` text
-Payment approval    0.4 days
-Seller handling     2.6 days
-Carrier transit     7.9 days
+```mermaid
+flowchart TD
+    A[Delivery problem] --> B[Late / missing order]
+    B --> C[High probability of negative review]
+    C --> D[Seller & marketplace experience impact]
 ```
 
-### Late orders
+The system moves the business from **reacting to failed deliveries** toward **identifying delivery risk earlier**.
 
-``` text
-Payment approval    0.5 days
-Seller handling     5.3 days
-Carrier transit    25.7 days
-```
+---
 
-The largest difference is in **carrier transit**.
+## ✦ Pilot & success measurement
 
-Seller handling also increases on late orders.
+The solution should be validated in a controlled pilot rather than assuming correlation equals business impact.
 
-The analysis additionally finds:
+**Suggested pilot metrics**
 
-``` text
-Late rate when seller handoff is fast → 6.3%
-Late rate when seller handoff is slow → 16.6%
-```
+- Late-order rate
+- Never-arrived rate
+- 1–2 star review rate
+- Review score among affected orders
+- Seller-level delivery performance
+- Accuracy of early-warning alerts
 
-The supplied data does not contain `shipping_limit_date`, so this is
-**not** presented as a seller-deadline violation analysis.
+The current analysis is the historical baseline; the pilot should show whether intervention actually improves outcomes.
 
-------------------------------------------------------------------------
+### Implementation roadmap
 
-## 7. Seller Concentration
+| Phase | Focus | Key actions |
+|---|---|---|
+| **Weeks 1–2** | Data & discovery | Confirm production data access · validate additional data needed · reconcile data-quality issues · define delivery and seller KPIs |
+| **Weeks 3–6** | Seller health | Build seller scorecards · analyze peak-period behavior · create the first watch list · set up monitoring dashboards |
+| **Weeks 7–12** | Early-warning pilot | Build a first risk-scoring model · select pilot sellers / segments · run with a control group · measure delivery and review outcomes |
+| **Next phase** | Scale | Integrate validated risk scores into workflows · improve promise calibration · add production signals as available |
 
-The seller analysis uses a minimum order-volume threshold before scoring
-sellers.
-
-Current results:
-
--   **3,095 sellers** in the source data
--   **634 sellers** scored
--   Scored sellers represent approximately **77% of sales**
--   **101 sellers** are on the watch list
--   Watch-list sellers represent approximately **8.2% of sales**
--   The top 10% of sellers represent approximately **67% of sales**
--   Median seller order count is **6**
-
-This shows that a relatively small group of sellers represents a large
-share of marketplace value.
-
-------------------------------------------------------------------------
-
-## 8. Multi-Seller Orders
-
-The analysis also checks orders involving multiple sellers.
-
-Among the relevant on-time orders:
-
-``` text
-Single-seller orders → average score ≈ 4.30
-Multi-seller orders   → average score ≈ 2.86
-```
-
-There are **1,257 multi-seller orders** in the analyzed subset.
-
-This is another observed association and is not treated as proof that
-multi-seller fulfillment causes lower ratings.
-
-------------------------------------------------------------------------
-
-## 9. Review Comment Themes
-
-The notebook reads **11,363 review comments** and applies simple
-keyword-based themes.
-
-Main themes include:
-
-  Theme                       Share
-  --------------------- -----------
-  Not received / late     **38.9%**
-  Only part arrived       **14.4%**
-  Defective / poor        **10.0%**
-  Wrong product            **8.4%**
-
-These are **directional keyword themes**, not a production NLP
-classifier. A comment can match more than one theme.
-
-------------------------------------------------------------------------
-
-## 10. Freight Pressure
-
-Freight becomes a much larger percentage of item value for low-priced
-products.
-
-  Item price      Freight / item price
-  ------------- ----------------------
-  \< R\$25                     **77%**
-  R\$25--50                    **39%**
-  R\$50--100                   **24%**
-  R\$100--200                  **16%**
-  R\$200+                       **8%**
-
-Overall freight is approximately:
-
-**16.6% of item price**
-
-This is a supporting business finding rather than the main story.
-
-------------------------------------------------------------------------
-
-## ✦ Business Interpretation
-
-The findings connect into one business story:
-
-  -----------------------------------------------------------------------
-  Story                         Evidence
-  ----------------------------- -----------------------------------------
-  **Delivery reliability        Late and never-arrived orders are \~10.8%
-  affects customer experience** of orders but account for 43.7% of 1--2
-                                star reviews
-
-  **The problem is uneven**     Monthly late rates vary sharply, reaching
-                                21.4% in March 2018
-
-  **The delay has identifiable  Late orders spend much longer in carrier
-  stages**                      transit and also have longer seller
-                                handling
-
-  **Seller performance is       The top 10% of sellers represent \~67% of
-  concentrated**                sales
-
-  **The problem is measurable** Order, seller, delivery-stage and review
-                                data can be combined to monitor risk
-  -----------------------------------------------------------------------
-
-The analysis does **not** claim that delivery is the only reason
-customers leave bad reviews. It identifies delivery reliability as the
-clearest measurable pattern in the supplied data.
-
-------------------------------------------------------------------------
-
-# ✦ Proposed Solution --- Delivery Intelligence & Seller Health
-
-The proposed solution is built around one connected business problem.
-
-  -----------------------------------------------------------------------
-  Module                    What it does
-  ------------------------- ---------------------------------------------
-  🚨 **Early-Warning        Estimates late-delivery risk for an order
-  Score**                   using available signals such as seller
-                            history, product characteristics and
-                            seasonality
-
-  📋 **Seller Health        Tracks late rate, problematic orders,
-  Scorecard**               handling time and review trends at seller
-                            level
-
-  🎯 **Promise              Uses historical delivery behavior to define
-  Calibration**             more realistic delivery windows by relevant
-                            operational segments and season
-  -----------------------------------------------------------------------
-
-### Why this approach?
-
-The analysis already shows:
-
-``` text
-Delivery problem
-      ↓
-Late / missing order
-      ↓
-High probability of negative review
-      ↓
-Seller / marketplace experience impact
-```
-
-The proposed system moves the business from **reacting to failed
-deliveries** toward **identifying delivery risk earlier**.
-
-------------------------------------------------------------------------
-
-## ✦ Pilot & Success Measurement
-
-The solution should be validated through a controlled pilot rather than
-assuming that correlation equals business impact.
-
-Suggested pilot metrics:
-
--   Late-order rate
--   Never-arrived rate
--   1--2 star review rate
--   Review score among affected orders
--   Seller-level delivery performance
--   Accuracy of early-warning alerts
-
-The current analysis provides the historical baseline; the pilot should
-determine whether intervention actually improves outcomes.
-
-------------------------------------------------------------------------
-
-## ✦ Implementation Roadmap
-
-### Weeks 1--2 --- Data & Discovery
-
--   Confirm production data access.
--   Validate the additional data needed for operational deployment.
--   Reconcile data-quality issues.
--   Define delivery and seller KPIs.
-
-### Weeks 3--6 --- Seller Health
-
--   Build seller scorecards.
--   Analyze peak-period behavior.
--   Create the first operational watch list.
--   Establish monitoring dashboards.
-
-### Weeks 7--12 --- Early Warning Pilot
-
--   Build a first risk-scoring model.
--   Select pilot sellers / operational segments.
--   Run with a control group.
--   Measure changes in delivery and review outcomes.
-
-### Next Phase
-
--   Integrate validated risk scores into operational workflows.
--   Improve promise calibration.
--   Add additional production signals as they become available.
-
-------------------------------------------------------------------------
+---
 
 ## ✦ Outreach
 
-The outreach is built around the strongest evidence rather than a
-generic AI pitch:
+The outreach leads with the strongest evidence rather than a generic AI pitch:
 
-> **Late and never-arrived orders represent about 11% of orders but
-> account for about 44% of all 1--2 star reviews.**
+> **Late and never-arrived orders represent about 11% of orders but account for about 44% of all 1–2 star reviews.**
 >
-> The analysis also shows where the delay is concentrated and which
-> seller-level patterns are worth monitoring.
+> The analysis also shows where the delay is concentrated and which seller-level patterns are worth monitoring.
 >
-> The proposed next step is a Delivery Intelligence & Seller Health
-> pilot that identifies risky orders earlier and gives Olist clearer
-> visibility into delivery performance.
+> The proposed next step is a Delivery Intelligence & Seller Health pilot that identifies risky orders earlier and gives Olist clearer visibility into delivery performance.
 
-------------------------------------------------------------------------
+---
 
-## ✦ Quick Start
+## ✦ Quick start
 
-``` bash
+```bash
 # 1. Clone the repository
 git clone https://github.com/morad-elnahla/HVIA_Task1_Olist.git
 cd HVIA_Task1_Olist
 
 # 2. Install dependencies
-pip install -r requirements.txt
+pip install pandas numpy matplotlib jupyter
 
 # 3. Open the notebook
-jupyter notebook notebook/Olist_Analysis.ipynb
+jupyter notebook Olist_Analysis.ipynb
 ```
 
-Then:
+Then in Jupyter: **Restart Kernel → Run All → inspect results → review the generated charts → check `results.json`.**
 
-``` text
-Restart Kernel
-      ↓
-Run All
-      ↓
-Inspect the results
-      ↓
-Generate / review charts
-      ↓
-Review results.json
-```
+---
 
-The notebook produces the analysis outputs used by the presentation.
+## ✦ Tech stack
 
-------------------------------------------------------------------------
+| Layer | Technology |
+|---|---|
+| 🐍 Language | Python 3.10+ |
+| 🧮 Analysis | pandas, NumPy |
+| 📊 Visualization | Matplotlib |
+| 📓 Environment | Jupyter Notebook |
+| 🗃️ Data | [Olist Brazilian E-Commerce Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) |
+| 📦 Output | JSON, charts, PowerPoint |
 
-## ✦ Tech Stack
-
-  Layer              Technology
-  ------------------ ------------------------------------
-  🐍 Language        Python 3.x
-  🧮 Analysis        pandas, NumPy
-  📊 Visualization   Matplotlib
-  📓 Environment     Jupyter Notebook
-  🗃️ Data            Olist Brazilian E-Commerce Dataset
-  📦 Output          JSON, charts, PowerPoint
-
-------------------------------------------------------------------------
+---
 
 ## ✦ Limitations
 
-### Historical dataset
+- **Historical dataset** — covers 2016–2018 and should not be read as Olist's current operations.
+- **Association, not causation** — the analysis shows relationships between delivery outcomes and reviews, not that late delivery alone causes bad reviews.
+- **No customer table** — no `customers` table or `customer_unique_id`, so repeat-buyer, retention and customer-location analysis are out of scope.
+- **No shipping deadline** — `shipping_limit_date` is missing. Seller handling is measured from available timestamps; official deadline compliance is not claimed.
+- **No financials** — no costs, commissions, profit or margins, so financial impact isn't calculated.
+- **Keyword-based review themes** — approximate categories, not a production NLP model.
+- **Data quality** — the source has timestamp and relationship inconsistencies, which the notebook detects and documents.
 
-The Olist dataset is historical and represents the period covered by the
-supplied public data. It should not be treated as a description of
-Olist's current operations.
+---
 
-### Association, not causation
+<div align="center">
 
-The analysis identifies relationships between delivery outcomes and
-review scores. It does not prove that late delivery alone causes
-negative reviews.
-
-### No customer table
-
-The current project contains no `customers` table and no
-`customer_unique_id`. Therefore repeat-buyer, retention and
-customer-location analysis are outside the scope of this version.
-
-### No shipping deadline
-
-The supplied order-items file does not contain `shipping_limit_date`.
-Seller handling is measured from the available timestamps, but official
-deadline compliance is not claimed.
-
-### No financials
-
-The supplied data does not contain costs, commissions, profit or
-margins. Financial impact is therefore not calculated.
-
-### Keyword-based review themes
-
-Comment themes are approximate keyword-based categories and should not
-be treated as a production NLP model.
-
-### Data quality
-
-The source contains timestamp and relationship inconsistencies. These
-are explicitly detected and documented by the notebook.
-
-------------------------------------------------------------------------
-
-::: {align="center"}
-**Built for the HVIA Data & AI Solutions · Business Discovery Internship
-Task**
+**Built for the HVIA Data & AI Solutions · Business Discovery Internship Task**
 
 **Morad El-Nahla · AI & Machine Learning Intern**
-:::
+
+</div>
