@@ -1,0 +1,264 @@
+{
+  "can_answer": {
+    "Customer location (state / zip)": false,
+    "Repeat buyers (customer_unique_id)": false,
+    "Seller shipping deadline": false,
+    "Costs or margins": false,
+    "Order review score": true,
+    "Delivery dates (5 timestamps)": true
+  },
+  "files_in_folder": 8,
+  "data_files": 8,
+  "inventory": [
+    {
+      "file": "olist_geolocation_dataset.csv",
+      "rows": 1000163,
+      "cols": 5,
+      "missing": 0,
+      "dups": 261831,
+      "grain": "none"
+    },
+    {
+      "file": "olist_order_items_dataset.csv",
+      "rows": 112650,
+      "cols": 6,
+      "missing": 0,
+      "dups": 0,
+      "grain": "order_id + order_item_id"
+    },
+    {
+      "file": "olist_order_payments_dataset.csv",
+      "rows": 103886,
+      "cols": 5,
+      "missing": 0,
+      "dups": 0,
+      "grain": "order_id + payment_sequential"
+    },
+    {
+      "file": "olist_order_reviews_dataset.csv",
+      "rows": 100000,
+      "cols": 7,
+      "missing": 146532,
+      "dups": 0,
+      "grain": "review_id + order_id"
+    },
+    {
+      "file": "olist_orders_dataset.csv",
+      "rows": 99441,
+      "cols": 8,
+      "missing": 4908,
+      "dups": 0,
+      "grain": "order_id"
+    },
+    {
+      "file": "olist_products_dataset.csv",
+      "rows": 32951,
+      "cols": 9,
+      "missing": 2448,
+      "dups": 0,
+      "grain": "product_id"
+    },
+    {
+      "file": "olist_sellers_dataset.csv",
+      "rows": 3095,
+      "cols": 4,
+      "missing": 0,
+      "dups": 0,
+      "grain": "seller_id"
+    },
+    {
+      "file": "product_category_name_translation.csv",
+      "rows": 71,
+      "cols": 2,
+      "missing": 0,
+      "dups": 0,
+      "grain": "product_category_name"
+    }
+  ],
+  "unsafe_joins": [
+    [
+      "olist_order_items_dataset",
+      "olist_order_payments_dataset",
+      "order_id"
+    ],
+    [
+      "olist_order_items_dataset",
+      "olist_order_reviews_dataset",
+      "order_id"
+    ],
+    [
+      "olist_order_payments_dataset",
+      "olist_order_reviews_dataset",
+      "order_id"
+    ]
+  ],
+  "orders_without_items": 775,
+  "orders_without_payment": 1,
+  "orders_without_review": 0,
+  "reviews_rows": 100000,
+  "reviews_orders": 99441,
+  "products_without_translation": 13,
+  "problems": {
+    "Carrier pick-up BEFORE purchase": 166,
+    "Carrier pick-up before payment approval": 1359,
+    "Customer delivery BEFORE carrier pick-up": 23,
+    "Status 'delivered' but no delivery date": 8,
+    "Delivery date present but status not 'delivered'": 6,
+    "Review written BEFORE the purchase": 75,
+    "Orders with 2+ review rows": 555,
+    "Rows with a review_id used by another order": 827,
+    "Products whose category has no English name": 13
+  },
+  "orders": 99441,
+  "sellers": 3095,
+  "sales_millions": 13.49,
+  "avg_score": 4.07,
+  "late_orders": 7827,
+  "late_rate": 8.1,
+  "never_arrived": 2965,
+  "never_by_status": {
+    "shipped": 1107,
+    "canceled": 619,
+    "unavailable": 609,
+    "invoiced": 314,
+    "processing": 301,
+    "delivered": 8,
+    "created": 5,
+    "approved": 2
+  },
+  "monthly_orders": {
+    "2017-01": 800,
+    "2017-02": 1780,
+    "2017-03": 2682,
+    "2017-04": 2404,
+    "2017-05": 3700,
+    "2017-06": 3245,
+    "2017-07": 4026,
+    "2017-08": 4331,
+    "2017-09": 4285,
+    "2017-10": 4631,
+    "2017-11": 7544,
+    "2017-12": 5673,
+    "2018-01": 7269,
+    "2018-02": 6728,
+    "2018-03": 7211,
+    "2018-04": 6939,
+    "2018-05": 6873,
+    "2018-06": 6167,
+    "2018-07": 6292,
+    "2018-08": 6512
+  },
+  "growth_pct": 135,
+  "peak_month": "2017-11",
+  "peak_orders": 7544,
+  "orders_2018_avg": 6749,
+  "promised_days": 23.7,
+  "actual_days": 12.6,
+  "late_by_month": {
+    "2017-01": 3.1,
+    "2017-02": 3.2,
+    "2017-03": 5.6,
+    "2017-04": 7.9,
+    "2017-05": 3.6,
+    "2017-06": 3.9,
+    "2017-07": 3.4,
+    "2017-08": 3.3,
+    "2017-09": 5.2,
+    "2017-10": 5.3,
+    "2017-11": 14.3,
+    "2017-12": 8.4,
+    "2018-01": 6.6,
+    "2018-02": 16.0,
+    "2018-03": 21.4,
+    "2018-04": 5.3,
+    "2018-05": 8.2,
+    "2018-06": 1.4,
+    "2018-07": 4.5,
+    "2018-08": 10.4
+  },
+  "worst_month": "2018-03",
+  "worst_month_rate": 21.4,
+  "bad_months": [
+    "2017-11",
+    "2018-02",
+    "2018-03"
+  ],
+  "score_by_delay": {
+    "On time": 4.28,
+    "1-3 days late": 3.75,
+    "3-7 days": 2.3,
+    "7-14 days": 1.74,
+    "14+ days": 1.7
+  },
+  "bad_rate": {
+    "Late": 54.6,
+    "Never arrived": 78.3,
+    "On time": 9.5
+  },
+  "orders_share": {
+    "Late": 7.9,
+    "Never arrived": 2.9,
+    "On time": 89.2
+  },
+  "bad_share": {
+    "Late": 28.6,
+    "Never arrived": 15.2,
+    "On time": 56.3
+  },
+  "fail_order_share": 10.8,
+  "fail_bad_share": 43.7,
+  "bad_reviews_total": 14963,
+  "avg_score_never": 1.74,
+  "one_quarter_late_saves_pct": 7.1,
+  "parts": {
+    "approval_days": {
+      "On time": 0.4,
+      "Late": 0.5
+    },
+    "handling_days": {
+      "On time": 2.6,
+      "Late": 5.3
+    },
+    "transit_days": {
+      "On time": 7.9,
+      "Late": 25.7
+    }
+  },
+  "late_if_slow": 16.6,
+  "late_if_fast": 6.3,
+  "slow_share": 17.6,
+  "transit_multiple": 3.3,
+  "sellers_scored": 634,
+  "scored_sales_share": 77,
+  "watch_sellers": 101,
+  "watch_sales_share": 8.2,
+  "avg_problem_rate_scored": 9.5,
+  "top10pct_sales_share": 67,
+  "median_seller_orders": 6,
+  "sp_seller_share": 60,
+  "score_1_seller": 4.3,
+  "score_multi_seller": 2.86,
+  "multi_seller_orders": 1257,
+  "complaints": {
+    "Wrong product": 8.4,
+    "Defective / poor": 10.0,
+    "Only part arrived": 14.4,
+    "Not received / late": 38.9
+  },
+  "comments_read": 11363,
+  "comments_no_theme": 36.5,
+  "freight_by_price": {
+    "< R$25": 77,
+    "25-50": 39,
+    "50-100": 24,
+    "100-200": 16,
+    "200+": 8
+  },
+  "freight_overall": 16.6,
+  "approval_by_payment": {
+    "boleto": 1.38,
+    "credit_card": 0.19,
+    "debit_card": 0.4,
+    "voucher": 0.35
+  }
+}
